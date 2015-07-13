@@ -1,441 +1,461 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Title</title>
-    <meta charset="utf-8">
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Amaranth);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+    <head>
+        <title>Язык Си</title>
+        <meta charset="utf-8">
+        <style>
+            @import url(http://fonts.googleapis.com/css?family=Philosopher:400,700&subset=latin,cyrillic);
+            @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic&subset=cyrillic-ext,latin);
 
-      body { font-family: 'Droid Serif';}
-      .title {
-        background-image: url(./sir.png);
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position: -1000% !important;
-        text-align: right !important;
-      }
-      h1, h2, h3 {
-        font-family: 'Amaranth';
-        font-weight: normal;
-      }
-      h2 { color: #777 }
-      h3 { margin: 0; }
-      table,td,th {border: 1px solid #aaa; border-collapse: collapse;}
-      td, th {padding: 5px;}
-      .bigger {font-size: 100px;}
-      .evenbigger {font-size: 130px;}
-      .evenbiggerthanthat {font-size: 160px;}
-      .biggest {font-size: 190px;}
-      img.bump {margin-top: 30px;}
-      .dark { background: #272822; color: #fff;}
-      .esplosion {background-image: url(./giphy.gif);background-repeat:no-repeat;background-size:cover;}
-      .thehorror {background-image: url(./giphy2.gif);background-repeat:no-repeat;background-size:cover;}
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .white > * {color: #fff !important;}
-    </style>
-  </head>
-  <body>
-    <textarea id="source">
+            body { font-family: 'Ubuntu Condensed',sans-serif;}
+            .title {
+                background-image: url(./sir.png);
+                background-repeat:no-repeat;
+                background-size:cover;
+                background-position: -1000% !important;
+                text-align: right !important;
+            }
+            h1{
+                font-family: 'Philosopher', cursive;
+                font-weight: bold;
+            }
+            h2, h3 {
+                font-family: 'Philosopher',sans-serif;
+                font-weight: normal;
+            }
+            h2 { color: #777 }
+            h3 { margin: 0; }
+            table,td,th {border: 1px solid #aaa; border-collapse: collapse;}
+            td, th {padding: 5px;}
+            .bigger {font-size: 100px;}
+            .evenbigger {font-size: 130px;}
+            .evenbiggerthanthat {font-size: 150px;}
+            .biggest {font-size: 155px;}
+            .biggest_memory{font-size:155px;}
+            img.bump {margin-top: 30px;}
+            .dark { background: #272822; color: #fff;}
+            .esplosion {background-image: url(./giphy.gif);background-repeat:no-repeat;background-size:cover;}
+            .thehorror {background-image: url(./giphy2.gif);background-repeat:no-repeat;background-size:cover;}
+            .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono', 'Philosopher',sans-serif; }
+            .white > * {color: #fff !important;}
+        </style>
+    </head>
+    <body>
+		<textarea id="source">
 
 class: center, title
 
-# How to Learn C
-*An introduction for the high-level programmer*
+# Как выучить Си
+*Введение для программиста высокого уровня*
 
 ---
 
-# Prerequisite knowledge
+# Необходимые знания
 
-### 1. At least one programming language
-Preferably two, because you'll know how to logically solve a problem, but express it in two different ways. *Don't pick C as your first language.*
-### 2. Logical thinking
-You must be able to break down a problem into simple steps the computer can understand. If you can't think like a computer, you'll have difficulty debugging.
-### 3. Time
-C isn't a language you'll quickly learn. You'll write programs that don't work right. It takes time before you can quickly spot issues in your code.
-
----
-# Why you should learn C
-<small>You only need C for projects that require low-level hardware access or blazing-fast speeds.</small>
-### 1. Advanced Game Development (coupled with a good game development framework)
-For *advanced* high-performance 3D graphics intensive applications. *<small>You'd better have some math knowledge (linear algebra, calculus and college physics) for that, too.</small>*
-
-### 2. Compilers
-Get a book on compiler design for this stuff.
-
-### 3. Embedded Applications
-When you're trying to eek out every last bit of performance, you're probably not going to flash your microcontroller with a Ruby interpreter so you can run a script.
+### 1. Знать как минимум 1 язык программирования
+Предпочтительно два, потому что вы будете знать, как логически решить проблему, но выразить это двумя различными способами. *Не выбирайте Cи в качестве первого языка.*
+### 2. Логическое мышление
+Вы должны быть в состоянии разбивать задачи в простые шаги, которые компьютер может понять. Если вы не можете думать, как компьютер, вам будет сложно отлаживать программу.
+### 3. Время
+Си — это не тот язык, который вы быстро выучите и начнете что-то достойное писать безошибочно. Вы будете писать программы, которые не будут правильно работать. Пройдет какое-то время, прежде чем вы сможете быстро определять проблемы в коде.
 
 ---
-# Why you should learn C (cont)
-### 4. Operating Systems
-YAH! LINUX!!! Or your own homebrew OS if you want.
+# Почему вам надо учить Си
+<small>Си вам нужен только для проектов, в которых требуется низкоуровневый доступ к системе или требуется очень быстрое выполнение каких-либо операций.</small>
+### 1. Продвинутая разработка игр (в сочетании с хорошим фреймворком для этого)
+Для *улучшений* производительности ресурсоёмких 3D приложений. *<small>Вам необходимо иметь некие математические знания (линейная алгебра, мат. анализ и, возможно, физика) для этого.</small>*
+
+### 2. Компиляторы
+Можете почитать книжку про дизайн компиляторов.
+
+### 3. Встроенные приложения
+Когда вы пытаетесь выжать производительность на максимум, используя минимум ресурсов, вы вряд ли захотите прошивать микроконтроллер Ruby интерпретатором чтобы запустить скрипт.
+
+---
+# Почему вам надо учить Си
+### 4. Операционные системы
+ДА! LINUX!!! Или ваша собственная доморощенная ОС, если хотите.
 
 ### 5. LINUX
-YAH! LINUX!!! Kernel hackering, command line utility development, writing a replacement to systemd, etc.
+ДА! LINUX!!! Хакинг ядра, разработка утилит коммандной строки, писать замену Systemd и т.д.
 
 <br/>
 <br/>
 
-If you're looking to write a script that counts the number of occurrences of 'foo' in a text file, you're in the wrong place.
+Если вы хотите написать скрипт, считающий количество вхождений строки "Foo" в некотором текстовом файле, то вы ошиблись адресом.
 ---
 class: center, middle, dark
-# If you're still sure you want to learn C, take a quick look at a guide to syntax so you have an idea of what's going on.
+# Если вы все еще уверены, что хотите узнать C, давайте по-быстрому пробежимся по синтаксису, чтобы вы знали, что тут вообще происходит.
 ---
 class: center, middle, dark
-# This slideshow is to help you learn and understand the more confusing concepts C introduces.
+# Это слайд-шоу поможет вам узнать и понять запутанную концепцию языка Си.
 ---
 class: center, middle, dark
 
-# On to the technical stuff
+# За кулисами
 
 ---
 class: center, middle, dark
-### Interpreted
+### Интрепретация
 vs
-### Compiled
+### Компиляция
 ---
 
-# Example
+# Пример
 ### Ruby
-As soon as you've finished writing your code, you can run it. The Ruby interpreter will execute the code on the fly:
+Как только вы закончите писать код, вы можете запустить его. Интерпретатор Ruby будет выполнять код шаг за шагом:
 ```bash
 ruby test.rb
-#=> Yah! Running code!
+#=> Да! Рабочий код!
 ```
 ### C
-C requires that you **compile** your code to an machine-code executable file first.
+Си требует, чтобы вы сначала **компилировали** свой исходный код в бинарный исполняемый файл.
 ```bash
-# Compile my shizzle to a new executable called 'test'
+# Скомпилировать код моей программы в новый исполняемый файл с названием 'test'
 cc -o test test.c
 
-# Run my shizzle
+# Запустить мою программу
 ./test
 ```
 ---
 
-## Advantages
-- Easy to redistribute
-- Fast
-- Automatic obfuscation (they can't read your code!)
-- The compiler essentially lints your code
+## Плюсы компилирования
+- Просто распространять
+- Быстро работает
+- Автоматическая обфускация (они не смогут прочитать твой код!)
+- Компилятор связывает код в одно целое
 
-## Disadvantages
-- Must be compiled on every architecture
-- More difficult to debug
+## Минусы
+- Должно быть скомпилировано под каждую архитектуру(ARM, x86, x86-64, etc)
+- Сложнее отлаживать код
 
 ---
 class: center, middle, dark
-### Dynamic typing
+### Динамическое типизирование
 vs
-### Static typing
+### Статическое типизирование
 ---
-# Example
+# Пример
 ### Ruby
-Variables can be anything!
+Переменные могут быть чем угодно!
 ```ruby
-my_var = 4 # Look, it's an integer
-my_var = 2.0 # Now it's a float
-my_var = [1,2,3] # Woah, an array!
-my_var = 'a string of stuff' # WORDS! (a.k.a. string)
+my_var = 4 # Посмотрите на этот integer
+my_var = 2.0 # Теперь он float
+my_var = [1,2,3] # Оооо, массив!
+my_var = 'a string of stuff' # СЛОВО! (так же известное как string)
 ```
 ### C
-Once you've set the type for your variable, it must stay that way forever.
+Единажды определив тип переменной для вашей переменной, вы не сможете его изменить в дальнейшем.
 ```c
-int my_var = 3; // It's an int!
-my_var = "abc"; // COMPILER ERROR! You clearly stated that it was an int!
+int my_var = 3; // Это int!
+my_var = "abc"; // ОШИБКА КОМПИЛЯТОРА! Вы уже сказали, что это — int!
 
-/* insert explosion here */
+/* вставить взрыв здесь */
 ```
 ---
 class: center, middle, dark
-### Safe
+### Безопасно
 vs
-### Unsafe
+### Небезопасно
 ---
-# Example
+# Пример
 ### Ruby
-Ruby's interpreter enforces sanity in your code.
+Интерпретатор Ruby усиливает здравомыслие в коде.
 ```ruby
 a = ['a', 'b', 'c']
 a[2]
 # => c
-a[5] # uh oh
-# => Error: idiot programmer attempting to access element that does not exist!
+a[5] # ну уж нет!
+# => Ошибка: идиот-программист пытается получить доступ к элементу,
+#    которого не существует!
 ```
 ### C
-In C, you can do whatever the heck you want.
+В Си, вы можете делать все, что вы, черт побери, хотите.
 ```c
 char a[] = {'a', 'b', 'c'};
 a[2]
 //=> 'c'
-a[5] // Sure! Have some garbage!
-//=> ajskdi&E3j ... Error: segfault
+a[5] // Да без вопросов! Держи немного мусора!
+//=> ajskdi&E3j ... Ошбика: segfault
 ```
 ---
 class: center, middle, dark
-### Automatic Memory Layout and Garbage Collection
+### Автоматическое распределение памяти и сборка мусора
 vs
-### Manual Memory Layout and Management
+### Ручное распределение памяти и сборка мусора
 ---
-# Example
+# Пример
 ### Ruby
 ```ruby
 def my_memory_function
-    cats = get_all_teh_images_on_imgur
-    process_images(cats) # Whoa, it's is takin up a lot of memory
-end # DELETE THE KITTIES
-# the cats variable doesn't exist anymore! We now have memory for more things!
+		cats = get_all_teh_images_on_imgur
+		process_images(cats) # Юху, она занимает МНОГО памяти
+end # УДАЛИТЬ КИСОК
+# Переменная cats больше не существует! Память была от нее очищена!
 ```
 
 ### C
 ```c
 void my_memory_function() {
-    // allocate the memory for a bunch of cat images
-    images *cats = malloc(sizeof(cat_image) * NUMBER_OF_CATS_ON_IMGUR);
-    get_all_teh_images_on_imgur(cats); // now, we can actually get the images
-    process_images(cats);
-    // Kitties still live in memory!
-    free(cats); // don't forget this, or else this memory will stay reserved for cats
-    // oop, now they're gone
+		// Выделяем память под набор картинок с кисками
+		images *cats = malloc(sizeof(cat_image) * NUMBER_OF_CATS_ON_IMGUR);
+		get_all_teh_images_on_imgur(cats); // теперь мы можем их скачать
+		process_images(cats);
+		// а киски то еще в памяти!
+		free(cats); // не забудте это, а то эта память так
+                    // и останется зарезервирована для этих картинок ;)
+
+		// ооп, теперь они пропали
 }
 ```
 ---
 class: center, middle, dark
-# Here's the thing
+# Заметьте:
 
 ---
 class: center, middle, dark
-# YOU MUST
+# ВЫ ДОЛЖНЫ
 
 ---
 class: center, middle, dark
-# .bigger[ALWAYS]
+# .bigger[ВСЕГДА]
 
 ---
 class: center, middle, dark
-# .evenbigger[BE AWARE]
+# .evenbigger[СЛЕДИТЬ]
 
 ---
 class: center, middle, dark
-# .evenbiggerthanthat[OF YOUR]
+# .evenbiggerthanthat[ЗА]
 
 ---
 class: center, middle, dark, esplosion
-# .biggest[MEMORY LAYOUT]
+# .biggest_memory[ПАМЯТЬЮ]
 ---
 class: center, middle, dark
-# Otherwise BadThings<sup><small>TM</small></sup> will happen
-*Explosions and crying puppies. It's bad.*
+# Иначе произойдут BadThings<sup><small>TM</small></sup>
+*Взрывы и плачущие щенки. Это плохо.*
 ---
 class: center, middle, dark
-# Onwards! To the confusing things!
+# Вперед! К сложностям!
 ---
 class: center, middle, dark, thehorror
-#.biggest[Pointers!]
+#.biggest[Указатели!]
 ---
-# Pointers
-... are foundational to C. They give you great power (so please be careful).
+# Указатели
+... как основа Си. Они дают вам великую силу (поэтому будте осторожны).
 
-*A pointer is a variable that contains a memory address (probably of another variable).*
+*Указатель — это переменная, содержащая адрес памяти (возможно, другой переменной).*
 
-In C, a '`*`' denotes a variable as a pointer to whatever data type comes before.
+В Си, символ '`*`' обозначает переменную как указатель на любой тип данных обозначеный ранее.
 
 ```c
-int *i_ptr; // this pointer can point to an integer
-float *f_ptr; // this can point to a float
-int **ii_ptr; // this pointer points to an int pointer
+int *i_ptr;   // этот указатель может указывать на целое число
+float *f_ptr; // этот указатель может указывать на число с плавающей точкой
+int **ii_ptr; // этот указатель указывает на указатель на целое число
 ```
 
-The '`&`' symbol allows you to get the memory location to a variable:
+Символ '`&`' позволяет вам получить ячейку памяти переменной:
 ```c
 int x = 3;
-int *i_ptr = &x; // i_ptr is a pointer to the memory location of 'x'
+int *i_ptr = &x; // i_ptr — это указатель на ячейку памяти переменной 'x'
 ```
 ---
-Memory is laid out something like this:
+Память выглядит примерно так:
 
-location | value
----------|------
-`0x00`   |
-`0x01`   |
-`0x02`   |
-`0x03`   |
+адрес        | значение
+-------------|---------
+`0x00`	     |
+`0x01`	     |
+`0x02`	     |
+`0x03`	     |
 
-And a variable is just named memory address:
+И пермеменная — это просто именованый адрес ячейки памяти:
 
 ```c
-int x = 3; // the compiler picks a memory location. Let's say: 0x01
+int x = 3; // Компилятор выбирает ячейку памяти. Скажем, 0x01
 ```
 
-location | value
----------|------
-`0x00`   |
-`0x01`   | `3`
-`0x02`   |
-`0x03`   |
+адрес        | значение
+-------------|---------
+`0x00`	     |
+`0x01`	     | `3`
+`0x02`	     |
+`0x03`	     |
 
-<small><small>In real life, you don't have to know the memory location for variables. This is just for demonstration.</small></small>
+<small><small>В реальной жизни вы не должны знать расположение переменных в памяти. Это просто для демонстрации.</small></small>
 ---
-If we create a pointer that points to variable `x`:
+Если мы создадим указатель, указывающий на переменную `x`:
 ```c
-int *i_ptr = &x; // so, i_ptr has to contain 0x01.
+int *i_ptr = &x; // итак, i_ptr должна содержать 0x01.
 ```
-`i_ptr` is a **variable**, and also **has a location in memory.** Let's say `0x02`.
+`i_ptr` — это **переменная**, и так же **располагается в памяти.** Пусть в `0x02`.
 
-location | value
----------|------
-`0x00`   |
-`0x01`   | `3`
-`0x02`   | `0x01`
-`0x03`   |
+адрес        | значение
+-------------|---------
+`0x00`	     |
+`0x01`	     | `3`
+`0x02`	     | `0x01`
+`0x03`	     |
 
-If we decided to create an integer pointer pointer (`int **`) to point to `i_ptr`:
+Если мы решим создать указатель на указатель на целое число (`int **`) на `i_ptr`:
 ```c
-int **ii_ptr = &i_ptr; // lets say ii_ptr is 0x03
+int **ii_ptr = &i_ptr; // пусть валяется ii_ptr в 0x03
 ```
-location | value
----------|------
-`0x00`   |
-`0x01`   | `3`
-`0x02`   | `0x01`
-`0x03`   | `0x02`
+адрес        | значение
+-------------|---------
+`0x00`    	 |
+`0x01`	     | `3`
+`0x02`    	 | `0x01`
+`0x03`	     | `0x02`
 ---
 class: center, middle, dark
-# Great, now we have a pointer to a pointer to an integer. But how do we get the value out?
+# Замечательно, теперь у нас есть указатель на указатель на целое число. Но как нам получить значение?
 ---
-This is were the dereference operator '`*`' comes into play.
+И тут вступает в игру оператор разыменовки '`*`'.
 
-`*` dereferences (or follows) a pointer to the location it points to:
+`*` разыменовывает (или следует по ссылкам) указатель в адрес, на который он указывает:
 ```c
-int y = *i_ptr; // gives us the value of what i_ptr points to
-int z = **ii_ptr; // gives follows the first pointer,
-                  // then follows the second pointer to the value.
+int y = *i_ptr;     // даёт нам значение, на которое указывает i_ptr
+int z = **ii_ptr;   // даёт сначала следует на первый указатель,
+                    // затем следует по второму указателю к значению.
 ```
 
-I like to think of a pointer as a directory and the value as a file.
+Мне нравится думать, что указатель — это папка, а значение — это файл.
 ```
 ─── ii_ptr
-    └── i_ptr
-        └── x
+		└── i_ptr
+				└── x
 ```
-Then, '`*`' would move down a directory and '`&`' would move up a directory.
+Поэтому, '`*`' перемещает папку вниз и '`&`' поднимает её вверх.
 ---
-Wait, but what about multiple files! That would break the analogy!
+Тааааак, стооооп! А как на счет нескольких файлов?
+Увы, но это сломает аналогию!
 ```
 ─── ii_ptr
-    └── i_ptr
-        ├── x
-        └── y
+		└── i_ptr
+				├── x
+				└── y
 ```
 
-Actually, this is how arrays are handled in C. A C array is a set of consecutive memory addresses. The first value is pointed to by a pointer.
+На самом деле, так обрабатываются массивы в Си. Массив в Си — это множество последовательно расположенных адресов памяти.
 
 ```c
-int a[] = {1, 2, 3}; // create an array
-// a is just a pointer to the first element...
-int first_val = *a; //... so dereferencing it will give us the first value.
-int second_val = *(a + 1); // get the next memory address (a + 1),
-                           // then follow (or step into) that memory address ('*')
-int third_value = a[2]; // this is just syntactic sugar for *(a + 2)
+int arr[] = {1, 2, 3};      // создаем массив
+                            // arr - это просто указатель на первый элемент...
+int first_val = *a;         // ... поэтому его разыменование даст
+                            // нам первое значение.
+int second_val = *(a + 1);  // получаем следующий адрес в памяти (a + 1),
+                            // и разыменовываем его ('*')
+
+int third_value = a[2];     // на самом деле это всего лишь синтаксический сахар
+                            // вот для этого: *(a + 2)
 ```
 ---
 class: center, middle, dark
-# There's a limitation to C arrays.
+# Существует ограничение для массивов в Си
 ---
 class: center, middle, dark
-# They aren't dynamic.
+# Они не динамические.
 ---
 class: center, middle, dark
-# You want to push a new element to the end of an array?
+# Хочешь положить новый элемент в конец массива?
 ---
 class: center, middle, dark
-# Guess what, bucko?
+# .bigger[Знаешь че?]
 ---
 class: center, middle, dark
-# You have to *manually* allocate space for the new value
+# А не взять ли тебе и ...
 ---
-# `malloc` and `realloc`
-*Manually allocating space in memory since 1972.*
+class: center, middle, dark
+# выделить место под новое значение ...
+---
+class: center, middle, dark
+# .biggest[*ВРУЧНУЮ*]
+---
+# `malloc` и `realloc`
+*Вручную выделеяет места в памяти с 1972.*
 
-`malloc` takes one argument: the number of bytes that need to be allocated.
+`malloc` получает 1 аргумент: количество байт, которое ему надо выделить.
 
-`sizeof(int)` returns the number of bytes in an integer, which we multiply by the number of elements in the array.
+`sizeof(int)` возвращает количество байт в integer, которые будут умножены на количество элементов в массиве.
 ```c
 int num_of_elements = 3;
 int *resize_arr = malloc(sizeof(int) * num_of_elements);
-// ... put stuff in it ...
+// ... положить остальной код тут ...
 ```
-To make room for a new element:
+Чтобы освободить место для нового элемента:
 ```c
 resize_arr = realloc(resize_arr, sizeof(int) * (num_of_elements + 1));
 ```
-The first argument is the pointer to reallocate, the second is the new size of the pointer.
+Первым аргументом является указатель, размер элемента которого надо изменить, второй — новый размер указателя.
 
-Don't forget to free it when you're done:
+Не забудте очистить память, когда закончите:
 ```c
 free(resize_arr);
 ```
 ---
 class: center, middle, dark
-# And finally
+# И наконец
 ---
 class: center, middle, dark
-# a concept that not difficult to understand
+# Концепция, которую не трудно понять
 ---
 class: center, middle, dark
-# but foundational
+# Но которая является фундаментальной
 ---
 class: center, middle, dark
-# C doesn't care about your data
+# Си пофиг на ваши данные
 ---
-# What does that mean?
-C doesn't give a flying crap about your types. You want to cast your integer to a char? Go ahead:
+# Что это значит?
+Си не очень то переживает над тем, что вы делаете с типами. Ты хочешь привести целое число в символ? Да пожайлуйста:
 ```c
 char letter = 'a';
-int x = (int) a; // look. it's now an int
+int x = (int) a; // смтори. теперь это int
 ```
 
-A pointer to an integer:
+Указатель на целое число:
 ```c
 int x = 3;
 int *ptr = &x;
 int y = (int) ptr;
 ```
-Does it throw a warning because ints aren't the same size as pointers? Yes. Does it make sense? No. Does C still cast it? Yes.
+Он предупредит, что int'ы имеют не такой же размер, как указатели? Да. Имеет ли это смысл? Нет. Си приведет указатель к int? Да.
 
-Using an image library and want to cast an int to the first pixel? Go ahead:
+Используя библиотеку для работы с изображениями и желая привести int к pixel, сможем ли мы это сделать? Погнали:
 ```c
 #include <img_lib.h>
 int num = 30;
 image *my_img = load_raw_image("./test.png");
-my_img[0][0] = (pixel) num;
+my_img[0][0] = (pixel) num; // Вуаля
 ```
 ---
 class: center, middle, dark
-# And that covers the all difficult C concepts for beginners
+# Ну, вроде о всех самых сложных для новичка концептах языка Си рассказано
 ---
-# What you should remember
-- C sees the world as a bunch of random bytes
-- Pointers are just addresses. They are variables too.
-- Arrays are collections of consecutive memory locations
+# Что вы должны запомнить?
+- Си следит за миром, как за кучей случайных байтов
+- Указатели — это просто адреса. Они же еще и переменные.
+- Массивы — это коллекции последовательно расположенных адресов
 ---
-# More resources for learning
+# Ресурся для изучения Си
 - [The C Programming Language](http://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628), a book by the original creators of C. They know what they're talking about.
-- An interactive [introduction to C](http://www.learn-c.org/)
-- A collection of [good blog posts on C](http://www.cprogramming.com/tutorial/c-tutorial.html)
+- Интерактивное [введение в Си](http://www.learn-c.org/)
+- Коллекция [хороших постов о Си](http://www.cprogramming.com/tutorial/c-tutorial.html)
 ---
 class: center, middle, dark
-If you think of anything that could help improve this slideshow, .white[[let me know :)](http://twitter.com/theninjacharlie)]
+Если вы считаете, что можете помочь с улучшением слайд-шоу, .white[[вот репозиторий на github :)](https://github.com/mokeev1995/intro_to_c_slideshow)]
 ---
 class: center, middle, dark
-created by .white[[@theninjacharlie](http://twitter.com/theninjacharlie)]
-    </textarea>
-    <script src="./remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
-  </body>
+Переведено .white[[@mokeev1995](http://twitter.com/mokeev1995)] (.white[[mokeev1995.ru](http://mokeev1995.ru)])
+---
+class: center, middle, dark
+Создано .white[[@theninjacharlie](http://twitter.com/theninjacharlie)]
+</textarea>
+        <script src="./remark-latest.min.js">
+        </script>
+        <script>
+            var slideshow = remark.create();
+        </script>
+    </body>
 </html>
