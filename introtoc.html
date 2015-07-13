@@ -1,79 +1,82 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Title</title>
-    <meta charset="utf-8">
-    <style>
-      @import url(https://fonts.googleapis.com/css?family=Amaranth);
-      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
-      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+    <head>
+        <title>Title</title>
+        <meta charset="utf-8">
+        <style>
+            @import url(http://fonts.googleapis.com/css?family=Philosopher:400,700&subset=latin,cyrillic);
+            @import url(http://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic&subset=cyrillic-ext,latin);
 
-      body { font-family: 'Droid Serif';}
-      .title {
-        background-image: url(./sir.png);
-        background-repeat:no-repeat;
-        background-size:cover;
-        background-position: -1000% !important;
-        text-align: right !important;
-      }
-      h1, h2, h3 {
-        font-family: 'Amaranth';
-        font-weight: normal;
-      }
-      h2 { color: #777 }
-      h3 { margin: 0; }
-      table,td,th {border: 1px solid #aaa; border-collapse: collapse;}
-      td, th {padding: 5px;}
-      .bigger {font-size: 100px;}
-      .evenbigger {font-size: 130px;}
-      .evenbiggerthanthat {font-size: 160px;}
-      .biggest {font-size: 190px;}
-      img.bump {margin-top: 30px;}
-      .dark { background: #272822; color: #fff;}
-      .esplosion {background-image: url(./giphy.gif);background-repeat:no-repeat;background-size:cover;}
-      .thehorror {background-image: url(./giphy2.gif);background-repeat:no-repeat;background-size:cover;}
-      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
-      .white > * {color: #fff !important;}
-    </style>
-  </head>
-  <body>
-    <textarea id="source">
+            body { font-family: 'Ubuntu Condensed',sans-serif;}
+            .title {
+                background-image: url(./sir.png);
+                background-repeat:no-repeat;
+                background-size:cover;
+                background-position: -1000% !important;
+                text-align: right !important;
+            }
+            h1{
+                font-family: 'Philosopher', cursive;
+                font-weight: bold;
+            }
+            h2, h3 {
+                font-family: 'Philosopher',sans-serif;
+                font-weight: normal;
+            }
+            h2 { color: #777 }
+            h3 { margin: 0; }
+            table,td,th {border: 1px solid #aaa; border-collapse: collapse;}
+            td, th {padding: 5px;}
+            .bigger {font-size: 100px;}
+            .evenbigger {font-size: 130px;}
+            .evenbiggerthanthat {font-size: 160px;}
+            .biggest {font-size: 190px;}
+            img.bump {margin-top: 30px;}
+            .dark { background: #272822; color: #fff;}
+            .esplosion {background-image: url(./giphy.gif);background-repeat:no-repeat;background-size:cover;}
+            .thehorror {background-image: url(./giphy2.gif);background-repeat:no-repeat;background-size:cover;}
+            .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono', 'Philosopher',sans-serif; }
+            .white > * {color: #fff !important;}
+        </style>
+    </head>
+    <body>
+		<textarea id="source">
 
 class: center, title
 
-# How to Learn C
-*An introduction for the high-level programmer*
+# Как выучить Си
+*Введение для программиста высокого уровня*
 
 ---
 
-# Prerequisite knowledge
+# Необходимые знания
 
-### 1. At least one programming language
-Preferably two, because you'll know how to logically solve a problem, but express it in two different ways. *Don't pick C as your first language.*
-### 2. Logical thinking
-You must be able to break down a problem into simple steps the computer can understand. If you can't think like a computer, you'll have difficulty debugging.
-### 3. Time
-C isn't a language you'll quickly learn. You'll write programs that don't work right. It takes time before you can quickly spot issues in your code.
+### 1. Знать как минимум 1 язык программирования
+Предпочтительно два, потому что вы будете знать, как логически решить проблему, но выразить это двумя различными способами. *Не выбирайте Cи в качестве первого языка.*
+### 2. Логическое мышление
+Вы должны быть в состоянии разбивать задачи в простые шаги, которые компьютер может понять. Если вы не можете думать, как компьютер, вам будет сложно отлаживать программу.
+### 3. Время
+Си - это не тот язык, который вы быстро выучите и начнете что-то достойное писать безошибочно. Вы будете писать программы, которые не будут правильно работать. Пройдет какое-то время, прежде чем вы сможете быстро определять проблемы в коде.
 
 ---
-# Why you should learn C
-<small>You only need C for projects that require low-level hardware access or blazing-fast speeds.</small>
-### 1. Advanced Game Development (coupled with a good game development framework)
+# Почему вам надо учить Си
+<small>Си вам нужен только для проектов, в которых требуется низкоуровневый доступ к системе или требуется очень быстрое выполнение каких-либо операций.</small>
+### 1. Продвинутая разработка игр (в сочетании с хорошим фреймворком для этого)
 For *advanced* high-performance 3D graphics intensive applications. *<small>You'd better have some math knowledge (linear algebra, calculus and college physics) for that, too.</small>*
 
-### 2. Compilers
+### 2. Компиляторы
 Get a book on compiler design for this stuff.
 
-### 3. Embedded Applications
+### 3. Встроенные приложения
 When you're trying to eek out every last bit of performance, you're probably not going to flash your microcontroller with a Ruby interpreter so you can run a script.
 
 ---
-# Why you should learn C (cont)
-### 4. Operating Systems
-YAH! LINUX!!! Or your own homebrew OS if you want.
+# Почему вам надо учить Си
+### 4. Операционные системы
+ДА! LINUX!!! Или ваша собственная доморощенная ОС, если хотите.
 
 ### 5. LINUX
-YAH! LINUX!!! Kernel hackering, command line utility development, writing a replacement to systemd, etc.
+ДА! LINUX!!! Хакинг ядра, разработка утилит коммандной строки, писать замену Systemd и т.д.
 
 <br/>
 <br/>
@@ -183,8 +186,8 @@ vs
 ### Ruby
 ```ruby
 def my_memory_function
-    cats = get_all_teh_images_on_imgur
-    process_images(cats) # Whoa, it's is takin up a lot of memory
+		cats = get_all_teh_images_on_imgur
+		process_images(cats) # Whoa, it's is takin up a lot of memory
 end # DELETE THE KITTIES
 # the cats variable doesn't exist anymore! We now have memory for more things!
 ```
@@ -192,13 +195,13 @@ end # DELETE THE KITTIES
 ### C
 ```c
 void my_memory_function() {
-    // allocate the memory for a bunch of cat images
-    images *cats = malloc(sizeof(cat_image) * NUMBER_OF_CATS_ON_IMGUR);
-    get_all_teh_images_on_imgur(cats); // now, we can actually get the images
-    process_images(cats);
-    // Kitties still live in memory!
-    free(cats); // don't forget this, or else this memory will stay reserved for cats
-    // oop, now they're gone
+		// allocate the memory for a bunch of cat images
+		images *cats = malloc(sizeof(cat_image) * NUMBER_OF_CATS_ON_IMGUR);
+		get_all_teh_images_on_imgur(cats); // now, we can actually get the images
+		process_images(cats);
+		// Kitties still live in memory!
+		free(cats); // don't forget this, or else this memory will stay reserved for cats
+		// oop, now they're gone
 }
 ```
 ---
@@ -258,10 +261,10 @@ Memory is laid out something like this:
 
 location | value
 ---------|------
-`0x00`   |
-`0x01`   |
-`0x02`   |
-`0x03`   |
+`0x00`	 |
+`0x01`	 |
+`0x02`	 |
+`0x03`	 |
 
 And a variable is just named memory address:
 
@@ -271,10 +274,10 @@ int x = 3; // the compiler picks a memory location. Let's say: 0x01
 
 location | value
 ---------|------
-`0x00`   |
-`0x01`   | `3`
-`0x02`   |
-`0x03`   |
+`0x00`	 |
+`0x01`	 | `3`
+`0x02`	 |
+`0x03`	 |
 
 <small><small>In real life, you don't have to know the memory location for variables. This is just for demonstration.</small></small>
 ---
@@ -286,10 +289,10 @@ int *i_ptr = &x; // so, i_ptr has to contain 0x01.
 
 location | value
 ---------|------
-`0x00`   |
-`0x01`   | `3`
-`0x02`   | `0x01`
-`0x03`   |
+`0x00`	 |
+`0x01`	 | `3`
+`0x02`	 | `0x01`
+`0x03`	 |
 
 If we decided to create an integer pointer pointer (`int **`) to point to `i_ptr`:
 ```c
@@ -297,10 +300,10 @@ int **ii_ptr = &i_ptr; // lets say ii_ptr is 0x03
 ```
 location | value
 ---------|------
-`0x00`   |
-`0x01`   | `3`
-`0x02`   | `0x01`
-`0x03`   | `0x02`
+`0x00`	 |
+`0x01`	 | `3`
+`0x02`	 | `0x01`
+`0x03`	 | `0x02`
 ---
 class: center, middle, dark
 # Great, now we have a pointer to a pointer to an integer. But how do we get the value out?
@@ -311,23 +314,23 @@ This is were the dereference operator '`*`' comes into play.
 ```c
 int y = *i_ptr; // gives us the value of what i_ptr points to
 int z = **ii_ptr; // gives follows the first pointer,
-                  // then follows the second pointer to the value.
+									// then follows the second pointer to the value.
 ```
 
 I like to think of a pointer as a directory and the value as a file.
 ```
 ─── ii_ptr
-    └── i_ptr
-        └── x
+		└── i_ptr
+				└── x
 ```
 Then, '`*`' would move down a directory and '`&`' would move up a directory.
 ---
 Wait, but what about multiple files! That would break the analogy!
 ```
 ─── ii_ptr
-    └── i_ptr
-        ├── x
-        └── y
+		└── i_ptr
+				├── x
+				└── y
 ```
 
 Actually, this is how arrays are handled in C. A C array is a set of consecutive memory addresses. The first value is pointed to by a pointer.
@@ -337,7 +340,7 @@ int a[] = {1, 2, 3}; // create an array
 // a is just a pointer to the first element...
 int first_val = *a; //... so dereferencing it will give us the first value.
 int second_val = *(a + 1); // get the next memory address (a + 1),
-                           // then follow (or step into) that memory address ('*')
+													 // then follow (or step into) that memory address ('*')
 int third_value = a[2]; // this is just syntactic sugar for *(a + 2)
 ```
 ---
@@ -408,34 +411,37 @@ Does it throw a warning because ints aren't the same size as pointers? Yes. Does
 Using an image library and want to cast an int to the first pixel? Go ahead:
 ```c
 #include <img_lib.h>
-int num = 30;
-image *my_img = load_raw_image("./test.png");
-my_img[0][0] = (pixel) num;
-```
----
-class: center, middle, dark
-# And that covers the all difficult C concepts for beginners
----
-# What you should remember
-- C sees the world as a bunch of random bytes
-- Pointers are just addresses. They are variables too.
-- Arrays are collections of consecutive memory locations
----
-# More resources for learning
-- [The C Programming Language](http://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628), a book by the original creators of C. They know what they're talking about.
-- An interactive [introduction to C](http://www.learn-c.org/)
-- A collection of [good blog posts on C](http://www.cprogramming.com/tutorial/c-tutorial.html)
----
-class: center, middle, dark
-If you think of anything that could help improve this slideshow, .white[[let me know :)](http://twitter.com/theninjacharlie)]
----
-class: center, middle, dark
-created by .white[[@theninjacharlie](http://twitter.com/theninjacharlie)]
-    </textarea>
-    <script src="./remark-latest.min.js">
-    </script>
-    <script>
-      var slideshow = remark.create();
-    </script>
-  </body>
+            int num = 30;
+            image *my_img = load_raw_image("./test.png");
+            my_img[0][0] = (pixel) num;
+            ```
+            ---
+            class: center, middle, dark
+            # And that covers the all difficult C concepts for beginners
+            ---
+            # What you should remember
+            - C sees the world as a bunch of random bytes
+            - Pointers are just addresses. They are variables too.
+            - Arrays are collections of consecutive memory locations
+            ---
+            # More resources for learning
+            - [The C Programming Language](http://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628), a book by the original creators of C. They know what they're talking about.
+            - An interactive [introduction to C](http://www.learn-c.org/)
+            - A collection of [good blog posts on C](http://www.cprogramming.com/tutorial/c-tutorial.html)
+            ---
+            class: center, middle, dark
+            If you think of anything that could help improve this slideshow, .white[[let me know :)](http://twitter.com/theninjacharlie)]
+            ---
+            class: center, middle, dark
+            created by .white[[@theninjacharlie](http://twitter.com/theninjacharlie)]
+            ---
+            class: center, middle, dark
+            Переведено .white[[@mokeev1995](http://twitter.com/mokeev1995)] (.white[[mokeev1995.ru](http://mokeev1995.ru)])
+		</textarea>
+        <script src="./remark-latest.min.js">
+        </script>
+        <script>
+            var slideshow = remark.create();
+        </script>
+    </body>
 </html>
