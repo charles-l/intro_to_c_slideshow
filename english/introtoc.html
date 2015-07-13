@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Title</title>
+    <meta charset="utf-8">
+    <style>
+      @import url(https://fonts.googleapis.com/css?family=Amaranth);
+      @import url(https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic);
+      @import url(https://fonts.googleapis.com/css?family=Ubuntu+Mono:400,700,400italic);
+
+      body { font-family: 'Droid Serif';}
+      .title {
+        background-image: url(../sir.png);
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position: -1000% !important;
+        text-align: right !important;
+      }
+      h1, h2, h3 {
+        font-family: 'Amaranth';
+        font-weight: normal;
+      }
+      h2 { color: #777 }
+      h3 { margin: 0; }
+      table,td,th {border: 1px solid #aaa; border-collapse: collapse;}
+      td, th {padding: 5px;}
+      .bigger {font-size: 100px;}
+      .evenbigger {font-size: 130px;}
+      .evenbiggerthanthat {font-size: 160px;}
+      .biggest {font-size: 190px;}
+      img.bump {margin-top: 30px;}
+      .dark { background: #272822; color: #fff;}
+      .esplosion {background-image: url(../giphy.gif);background-repeat:no-repeat;background-size:cover;}
+      .thehorror {background-image: url(../giphy2.gif);background-repeat:no-repeat;background-size:cover;}
+      .remark-code, .remark-inline-code { font-family: 'Ubuntu Mono'; }
+      .white > * {color: #fff !important;}
+    </style>
+  </head>
+  <body>
+    <textarea id="source">
+
+class: center, title
+
+# How to Learn C
+*An introduction for the high-level programmer*
+
+---
+
+# Prerequisite knowledge
+
+### 1. At least one programming language
+Preferably two, because you'll know how to logically solve a problem, but express it in two different ways. *Don't pick C as your first language.*
+### 2. Logical thinking
+You must be able to break down a problem into simple steps the computer can understand. If you can't think like a computer, you'll have difficulty debugging.
+### 3. Time
+C isn't a language you'll quickly learn. You'll write programs that don't work right. It takes time before you can quickly spot issues in your code.
+
+---
+# Why you should learn C
+<small>You only need C for projects that require low-level hardware access or blazing-fast speeds.</small>
+### 1. Advanced Game Development (coupled with a good game development framework)
+For *advanced* high-performance 3D graphics intensive applications. *<small>You'd better have some math knowledge (linear algebra, calculus and college physics) for that, too.</small>*
+
+### 2. Compilers
+Get a book on compiler design for this stuff.
+
+### 3. Embedded Applications
+When you're trying to eek out every last bit of performance, you're probably not going to flash your microcontroller with a Ruby interpreter so you can run a script.
+
+---
+# Why you should learn C (cont)
+### 4. Operating Systems
+YAH! LINUX!!! Or your own homebrew OS if you want.
+
+### 5. LINUX
+YAH! LINUX!!! Kernel hackering, command line utility development, writing a replacement to systemd, etc.
+
+<br/>
+<br/>
+
+If you're looking to write a script that counts the number of occurrences of 'foo' in a text file, you're in the wrong place.
+---
+class: center, middle, dark
+# If you're still sure you want to learn C, take a quick look at a guide to syntax so you have an idea of what's going on.
+---
+class: center, middle, dark
+# This slideshow is to help you learn and understand the more confusing concepts C introduces.
+---
+class: center, middle, dark
+
+# On to the technical stuff
+
+---
+class: center, middle, dark
+### Interpreted
+vs
+### Compiled
+---
+
+# Example
+### Ruby
+As soon as you've finished writing your code, you can run it. The Ruby interpreter will execute the code on the fly:
+```bash
+ruby test.rb
+#=> Yah! Running code!
+```
+### C
+C requires that you **compile** your code to an machine-code executable file first.
+```bash
+# Compile my shizzle to a new executable called 'test'
+cc -o test test.c
+
+# Run my shizzle
+./test
+```
+---
+
+## Advantages
+- Easy to redistribute
+- Fast
+- Automatic obfuscation (they can't read your code!)
+- The compiler essentially lints your code
+
+## Disadvantages
+- Must be compiled on every architecture
+- More difficult to debug
+
+---
+class: center, middle, dark
+### Dynamic typing
+vs
+### Static typing
+---
+# Example
+### Ruby
+Variables can be anything!
+```ruby
+my_var = 4 # Look, it's an integer
+my_var = 2.0 # Now it's a float
+my_var = [1,2,3] # Woah, an array!
+my_var = 'a string of stuff' # WORDS! (a.k.a. string)
+```
+### C
+Once you've set the type for your variable, it must stay that way forever.
+```c
+int my_var = 3; // It's an int!
+my_var = "abc"; // COMPILER ERROR! You clearly stated that it was an int!
+
+/* insert explosion here */
+```
+---
+class: center, middle, dark
+### Safe
+vs
+### Unsafe
+---
+# Example
+### Ruby
+Ruby's interpreter enforces sanity in your code.
+```ruby
+a = ['a', 'b', 'c']
+a[2]
+# => c
+a[5] # uh oh
+# => Error: idiot programmer attempting to access element that does not exist!
+```
+### C
+In C, you can do whatever the heck you want.
+```c
+char a[] = {'a', 'b', 'c'};
+a[2]
+//=> 'c'
+a[5] // Sure! Have some garbage!
+//=> ajskdi&E3j ... Error: segfault
+```
+---
+class: center, middle, dark
+### Automatic Memory Layout and Garbage Collection
+vs
+### Manual Memory Layout and Management
+---
+# Example
+### Ruby
+```ruby
+def my_memory_function
+    cats = get_all_teh_images_on_imgur
+    process_images(cats) # Whoa, it's is takin up a lot of memory
+end # DELETE THE KITTIES
+# the cats variable doesn't exist anymore! We now have memory for more things!
+```
+
+### C
+```c
+void my_memory_function() {
+    // allocate the memory for a bunch of cat images
+    images *cats = malloc(sizeof(cat_image) * NUMBER_OF_CATS_ON_IMGUR);
+    get_all_teh_images_on_imgur(cats); // now, we can actually get the images
+    process_images(cats);
+    // Kitties still live in memory!
+    free(cats); // don't forget this, or else this memory will stay reserved for cats
+    // oop, now they're gone
+}
+```
+---
+class: center, middle, dark
+# Here's the thing
+
+---
+class: center, middle, dark
+# YOU MUST
+
+---
+class: center, middle, dark
+# .bigger[ALWAYS]
+
+---
+class: center, middle, dark
+# .evenbigger[BE AWARE]
+
+---
+class: center, middle, dark
+# .evenbiggerthanthat[OF YOUR]
+
+---
+class: center, middle, dark, esplosion
+# .biggest[MEMORY LAYOUT]
+---
+class: center, middle, dark
+# Otherwise BadThings<sup><small>TM</small></sup> will happen
+*Explosions and crying puppies. It's bad.*
+---
+class: center, middle, dark
+# Onwards! To the confusing things!
+---
+class: center, middle, dark, thehorror
+#.biggest[Pointers!]
+---
+# Pointers
+... are foundational to C. They give you great power (so please be careful).
+
+*A pointer is a variable that contains a memory address (probably of another variable).*
+
+In C, a '`*`' denotes a variable as a pointer to whatever data type comes before.
+
+```c
+int *i_ptr; // this pointer can point to an integer
+float *f_ptr; // this can point to a float
+int **ii_ptr; // this pointer points to an int pointer
+```
+
+The '`&`' symbol allows you to get the memory location to a variable:
+```c
+int x = 3;
+int *i_ptr = &x; // i_ptr is a pointer to the memory location of 'x'
+```
+---
+Memory is laid out something like this:
+
+location | value
+---------|------
+`0x00`   |
+`0x01`   |
+`0x02`   |
+`0x03`   |
+
+And a variable is just named memory address:
+
+```c
+int x = 3; // the compiler picks a memory location. Let's say: 0x01
+```
+
+location | value
+---------|------
+`0x00`   |
+`0x01`   | `3`
+`0x02`   |
+`0x03`   |
+
+<small><small>In real life, you don't have to know the memory location for variables. This is just for demonstration.</small></small>
+---
+If we create a pointer that points to variable `x`:
+```c
+int *i_ptr = &x; // so, i_ptr has to contain 0x01.
+```
+`i_ptr` is a **variable**, and also **has a location in memory.** Let's say `0x02`.
+
+location | value
+---------|------
+`0x00`   |
+`0x01`   | `3`
+`0x02`   | `0x01`
+`0x03`   |
+
+If we decided to create an integer pointer pointer (`int **`) to point to `i_ptr`:
+```c
+int **ii_ptr = &i_ptr; // lets say ii_ptr is 0x03
+```
+location | value
+---------|------
+`0x00`   |
+`0x01`   | `3`
+`0x02`   | `0x01`
+`0x03`   | `0x02`
+---
+class: center, middle, dark
+# Great, now we have a pointer to a pointer to an integer. But how do we get the value out?
+---
+This is were the dereference operator '`*`' comes into play.
+
+`*` dereferences (or follows) a pointer to the location it points to:
+```c
+int y = *i_ptr; // gives us the value of what i_ptr points to
+int z = **ii_ptr; // gives follows the first pointer,
+                  // then follows the second pointer to the value.
+```
+
+I like to think of a pointer as a directory and the value as a file.
+```
+─── ii_ptr
+    └── i_ptr
+        └── x
+```
+Then, '`*`' would move down a directory and '`&`' would move up a directory.
+---
+Wait, but what about multiple files! That would break the analogy!
+```
+─── ii_ptr
+    └── i_ptr
+        ├── x
+        └── y
+```
+
+Actually, this is how arrays are handled in C. A C array is a set of consecutive memory addresses. The first value is pointed to by a pointer.
+
+```c
+int a[] = {1, 2, 3}; // create an array
+// a is just a pointer to the first element...
+int first_val = *a; //... so dereferencing it will give us the first value.
+int second_val = *(a + 1); // get the next memory address (a + 1),
+                           // then follow (or step into) that memory address ('*')
+int third_value = a[2]; // this is just syntactic sugar for *(a + 2)
+```
+---
+class: center, middle, dark
+# There's a limitation to C arrays.
+---
+class: center, middle, dark
+# They aren't dynamic.
+---
+class: center, middle, dark
+# You want to push a new element to the end of an array?
+---
+class: center, middle, dark
+# Guess what, bucko?
+---
+class: center, middle, dark
+# You have to *manually* allocate space for the new value
+---
+# `malloc` and `realloc`
+*Manually allocating space in memory since 1972.*
+
+`malloc` takes one argument: the number of bytes that need to be allocated.
+
+`sizeof(int)` returns the number of bytes in an integer, which we multiply by the number of elements in the array.
+```c
+int num_of_elements = 3;
+int *resize_arr = malloc(sizeof(int) * num_of_elements);
+// ... put stuff in it ...
+```
+To make room for a new element:
+```c
+resize_arr = realloc(resize_arr, sizeof(int) * (num_of_elements + 1));
+```
+The first argument is the pointer to reallocate, the second is the new size of the pointer.
+
+Don't forget to free it when you're done:
+```c
+free(resize_arr);
+```
+---
+class: center, middle, dark
+# And finally
+---
+class: center, middle, dark
+# a concept that not difficult to understand
+---
+class: center, middle, dark
+# but foundational
+---
+class: center, middle, dark
+# C doesn't care about your data
+---
+# What does that mean?
+C doesn't give a flying crap about your types. You want to cast your integer to a char? Go ahead:
+```c
+char letter = 'a';
+int x = (int) a; // look. it's now an int
+```
+
+A pointer to an integer:
+```c
+int x = 3;
+int *ptr = &x;
+int y = (int) ptr;
+```
+Does it throw a warning because ints aren't the same size as pointers? Yes. Does it make sense? No. Does C still cast it? Yes.
+
+Using an image library and want to cast an int to the first pixel? Go ahead:
+```c
+#include <img_lib.h>
+int num = 30;
+image *my_img = load_raw_image("./test.png");
+my_img[0][0] = (pixel) num;
+```
+---
+class: center, middle, dark
+# And that covers the all difficult C concepts for beginners
+---
+# What you should remember
+- C sees the world as a bunch of random bytes
+- Pointers are just addresses. They are variables too.
+- Arrays are collections of consecutive memory locations
+---
+# More resources for learning
+- [The C Programming Language](http://www.amazon.com/Programming-Language-Brian-W-Kernighan/dp/0131103628), a book by the original creators of C. They know what they're talking about.
+- An interactive [introduction to C](http://www.learn-c.org/)
+- A collection of [good blog posts on C](http://www.cprogramming.com/tutorial/c-tutorial.html)
+---
+class: center, middle, dark
+If you think of anything that could help improve this slideshow, .white[[let me know :)](http://twitter.com/theninjacharlie)]
+---
+class: center, middle, dark
+created by .white[[@theninjacharlie](http://twitter.com/theninjacharlie)]
+    </textarea>
+    <script src="../remark-latest.min.js">
+    </script>
+    <script>
+      var slideshow = remark.create();
+    </script>
+  </body>
+</html>
